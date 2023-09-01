@@ -1,0 +1,42 @@
+body{
+    background-image: url(./assets/flappy-bird-assets/sprites/background-day.png);
+    /* background: contain; */
+    background-repeat: no-repeat;
+    background-size: 100% 100vh;
+    /* background-color: aqua; */
+}
+#flappy{
+    position: absolute;
+    /* background-color: yellow ;*/
+    background-image: url(./assets/flappy-bird-assets/sprites/bluebird-midflap.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    top:300px;
+    left: 100px;
+    width: 70px;
+    height: 70px;
+}
+.billBoard{
+    font-size: 3em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: fit-content;
+    padding: 10px;
+    border: 7px solid black;
+    border-radius: 20px;
+}
+.pipe{
+    position: absolute;
+    left: 20px;
+    width: 100px;
+    height: 100px;
+    /* background-color: green; */
+    background-image: url("./assets/flappy-bird-assets/sprites/pipe-green.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.levels{
+    width: 700px;
+    font-size: 200px;
+    position: absolute;
+    top: 20vh;
+}
