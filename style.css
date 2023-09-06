@@ -1,42 +1,51 @@
-body{
-    background-image: url(./assets/flappy-bird-assets/sprites/background-day.png);
-    /* background: contain; */
-    background-repeat: no-repeat;
-    background-size: 100% 100vh;
-    /* background-color: aqua; */
+body {
+  background-image: url(./assets/sprites/background-day.png);
+  /* background: contain; */
+  background-repeat: no-repeat;
+  background-size: 100% 100vh;
+  /* background-color: aqua; */
 }
-#flappy{
-    position: absolute;
-    /* background-color: yellow ;*/
-    background-image: url(./assets/flappy-bird-assets/sprites/bluebird-midflap.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    top:300px;
-    left: 100px;
-    width: 70px;
-    height: 70px;
+#atEnd,
+#atStart {
+  position: fixed;
+  z-index: 1000;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(240, 237, 237, 0.356);
 }
-.billBoard{
-    font-size: 3em;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    width: fit-content;
-    padding: 10px;
-    border: 7px solid black;
-    border-radius: 20px;
+#flappy {
+  position: absolute;
+  /* background-color: yellow ;*/
+  background-image: url(./assets/sprites/bluebird-midflap.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  top: 300px;
+  left: 100px;
+  width: 80px;
+  /* height: 70px; */
 }
-.pipe{
-    position: absolute;
-    left: 20px;
-    width: 100px;
-    height: 100px;
-    /* background-color: green; */
-    background-image: url("./assets/flappy-bird-assets/sprites/pipe-green.png");
-    background-size: cover;
-    background-repeat: no-repeat;
+.billBoard {
+  font-size: 3em;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  width: 350px;
+  padding: 10px;
+  border: 7px solid black;
+  border-radius: 20px;
 }
-.levels{
-    width: 700px;
-    font-size: 200px;
-    position: absolute;
-    top: 20vh;
+.pipe {
+  position: absolute;
+  left: 20px;
+  width: 100px;
+  height: 100px;
+  /* background-color: green; */
+  background-image: url("./assets/sprites/pipe-green.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.levels {
+  width: 700px;
+  font-size: 200px;
+  position: absolute;
+  top: 20vh;
 }

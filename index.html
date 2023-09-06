@@ -9,48 +9,46 @@
     <script defer src="index.js"></script>
   </head>
   <body>
+    <div id="atEnd" class="billBoard" style="display: none">
+      <p>Game over</p>
+      <p>Press R to start over</p>
+    </div>
     <div id="atStart" class="billBoard">
       <p>Press S to start</p>
       <p>Press space to jump</p>
     </div>
-    <div id="atEnd" class="billBoard" style="visibility: hidden">
-      <p>Game over</p>
-      p{Press R to start over}
-    </div>
-    <div id="flappy"></div>
 
+    <!-- <div id="flappy"></div> -->
+    <img src="assets/sprites/bluebird-midflap.png" id="flappy" alt="" />
     <!-- level 1 -->
-    <div class="pipe level-1" style="height: 50vh; top: 0vh; left: 400px"></div>
+    <div class="pipe level-1" style="height: 50vh; top: 0vh; left: 40vw"></div>
     <div
       class="pipe level-1"
-      style="height: 20vh; bottom: 0vh; left: 400px"
+      style="height: 20vh; bottom: 0vh; left: 40vw"
     ></div>
 
-    <div class="pipe level-1" style="height: 20vh; top: 0vh; left: 650px"></div>
+    <div class="pipe level-1" style="height: 20vh; top: 0vh; left: 70vw"></div>
     <div
       class="pipe level-1"
-      style="height: 50vh; bottom: 0vh; left: 650px"
+      style="height: 50vh; bottom: 0vh; left: 70vw"
     ></div>
-
-    <div
-      class="pipe level-1"
-      style="height: 30vh; bottom: 0vh; left: 900px"
-    ></div>
-    <div class="pipe level-1" style="height: 40vh; top: 0vh; left: 900px"></div>
 
     <div
       class="pipe level-1"
-      style="height: 60vh; top: 0vh; left: 1150px"
+      style="height: 30vh; bottom: 0vh; left: 100vw"
     ></div>
+    <div class="pipe level-1" style="height: 40vh; top: 0vh; left: 100vw"></div>
+
+    <div class="pipe level-1" style="height: 60vh; top: 0vh; left: 130vw"></div>
     <div
       class="pipe level-1"
-      style="height: 10vh; bottom: 0vh; left: 1150px"
+      style="height: 10vh; bottom: 0vh; left: 130vw"
     ></div>
 
-    <div class="pipe level-1" style="height: 30vh; top: 0vh; left: 1350"></div>
+    <div class="pipe level-1" style="height: 30vh; top: 0vh; left: 160vw"></div>
     <div
       class="pipe level-1"
-      style="height: 30vh; bottom: 0vh; left: 1350"
+      style="height: 30vh; bottom: 0vh; left: 160vw"
     ></div>
 
     <div
