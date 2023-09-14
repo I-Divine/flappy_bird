@@ -56,7 +56,7 @@ window.addEventListener("keydown", (event) => {
       started = true;
       startInstr.style.visibility = "hidden";
     }
-    if (event.key == "w" || event.key == " ") flappy.jump();
+    if (event.key == "w" || (event.key == " " && started)) flappy.jump();
   } else {
     if (event.key == "r") location.reload();
   }
