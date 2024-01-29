@@ -1,5 +1,8 @@
 let failed = false;
 let started = false;
+let jumpsound = document.getElementById("jumpsound");
+let pointsound = document.getElementById("pointsound");
+let hitsound = document.getElementById("hitsound");
 const startInstr = document.getElementById("atStart");
 const endInstr = document.getElementById("atEnd");
 const flappy = {
@@ -9,9 +12,11 @@ const flappy = {
   yVelocity: 0,
   jumping: false,
   g: 0.375,
+  score: 0,
   start: function () {
     // started=true;
     this.gravity();
+    this.addScore();
   },
   gravity: function () {
     const vChange = setInterval(() => {
@@ -34,8 +39,19 @@ const flappy = {
     }, 30);
   },
   jump: function () {
-    this.yVelocity = -7.0;
+    this.yVelocity = -6.0;
+    jumpsound.play();
+    console.log(jumpsound);
     // console.log(this.jumping);
+  },
+  addScore: function () {
+    const changeScore = setInterval(() => {
+      if (started && !failed) {
+        this.score += 1;
+        pointsound.play();
+        console.log(this.score);
+      }
+    }, 2000);
   },
 };
 // class Pipe{
@@ -62,9 +78,11 @@ window.addEventListener("keydown", (event) => {
   }
 });
 
-const move = (pipe) => {
+// this moves the pipes from left to right
+const move = (pipe, pipe_speed = 0.8) => {
+  // let pipe_speed = 0.8;
   let xPos = Number(pipe.style.left.split("v")[0]);
-  xPos -= 0.7;
+  xPos -= pipe_speed;
   pipe.style.left = xPos + "vw";
 };
 
@@ -76,10 +94,12 @@ const pipeCode = setInterval(() => {
     if (collisionCheck(pipe, flappy.bird)) {
       clearInterval(pipeCode);
       failed = true;
+      hitsound.play();
     }
     if (Number(pipe.style.left.split("v")[0]) <= 0) pipe.style.left = "680vw";
   });
 }, 30);
+
 const collisionCheck = (element1, element2) => {
   const domRect1 = element1.getBoundingClientRect();
   const domRect2 = element2.getBoundingClientRect();

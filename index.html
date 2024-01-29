@@ -10,6 +10,9 @@
     <script defer src="index.js"></script>
   </head>
   <body>
+    <audio id="jumpsound" src="./assets/audio/wing.wav"></audio>
+    <audio id="pointsound" src="./assets/audio/point.wav"></audio>
+    <audio id="hitsound" src="./assets/audio/hit.wav"></audio>
     <div id="atEnd" class="billBoard" style="display: none">
       <p>Game over</p>
       <p>Press R to start over</p>
@@ -21,77 +24,59 @@
 
     <!-- <div id="flappy"></div> -->
     <img src="assets/sprites/bluebird-midflap.png" id="flappy" alt="" />
-    <!-- level 1 -->
-    <div class="pipe level-1" style="height: 50vh; top: 0vh; left: 40vw"></div>
-    <div
-      class="pipe level-1"
-      style="height: 20vh; bottom: 0vh; left: 40vw"
-    ></div>
 
-    <div class="pipe level-1" style="height: 20vh; top: 0vh; left: 70vw"></div>
-    <div
-      class="pipe level-1"
-      style="height: 50vh; bottom: 0vh; left: 70vw"
-    ></div>
+    <div class="pipe top" style="height: 50vh; top: 0vh; left: 40vw"></div>
+    <div class="pipe" style="height: 20vh; bottom: 0vh; left: 40vw"></div>
 
-    <div
-      class="pipe level-1"
-      style="height: 30vh; bottom: 0vh; left: 100vw"
-    ></div>
-    <div class="pipe level-1" style="height: 40vh; top: 0vh; left: 100vw"></div>
+    <div class="pipe top" style="height: 20vh; top: 0vh; left: 70vw"></div>
+    <div class="pipe" style="height: 50vh; bottom: 0vh; left: 70vw"></div>
 
-    <div class="pipe level-1" style="height: 60vh; top: 0vh; left: 130vw"></div>
-    <div
-      class="pipe level-1"
-      style="height: 10vh; bottom: 0vh; left: 130vw"
-    ></div>
+    <div class="pipe" style="height: 30vh; bottom: 0vh; left: 100vw"></div>
+    <div class="pipe top" style="height: 40vh; top: 0vh; left: 100vw"></div>
 
-    <div class="pipe level-1" style="height: 30vh; top: 0vh; left: 160vw"></div>
-    <div
-      class="pipe level-1"
-      style="height: 30vh; bottom: 0vh; left: 160vw"
-    ></div>
+    <div class="pipe top" style="height: 60vh; top: 0vh; left: 130vw"></div>
+    <div class="pipe" style="height: 10vh; bottom: 0vh; left: 130vw"></div>
 
-    <div
-      class="pipe level-1"
-      style="height: 40vh; bottom: 0vh; left: 190vw"
-    ></div>
-    <div class="pipe level-1" style="height: 30vh; top: 0vh; left: 190vw"></div>
+    <div class="pipe top" style="height: 30vh; top: 0vh; left: 160vw"></div>
+    <div class="pipe" style="height: 30vh; bottom: 0vh; left: 160vw"></div>
 
-    <div class="pipe" style="height: 20vh; top: 0vh; left: 290vw"></div>
+    <div class="pipe" style="height: 40vh; bottom: 0vh; left: 190vw"></div>
+    <div class="pipe top" style="height: 30vh; top: 0vh; left: 190vw"></div>
+
+    <div class="pipe top" style="height: 20vh; top: 0vh; left: 290vw"></div>
     <div class="pipe" style="height: 50vh; bottom: 0vh; left: 290vw"></div>
 
-    <div class="pipe" style="height: 10vh; top: 0vh; left: 320vw"></div>
+    <div class="pipe top" style="height: 10vh; top: 0vh; left: 320vw"></div>
     <div class="pipe" style="height: 60vh; bottom: 0vh; left: 320vw"></div>
 
     <div class="pipe" style="height: 40vh; bottom: 0vh; left: 350vw"></div>
-    <div class="pipe" style="height: 30vh; top: 0vh; left: 350vw"></div>
+    <div class="pipe top" style="height: 30vh; top: 0vh; left: 350vw"></div>
 
-    <div class="pipe" style="height: 50vh; top: 0vh; left: 380vw"></div>
+    <div class="pipe top" style="height: 50vh; top: 0vh; left: 380vw"></div>
     <div class="pipe" style="height: 20vh; bottom: 0vh; left: 380vw"></div>
 
-    <div class="pipe" style="height: 40vh; top: 0vh; left: 410vw"></div>
+    <div class="pipe top" style="height: 40vh; top: 0vh; left: 410vw"></div>
     <div class="pipe" style="height: 30vh; bottom: 0vh; left: 410vw"></div>
 
     <div class="pipe" style="height: 40vh; bottom: 0vh; left: 440vw"></div>
-    <div class="pipe" style="height: 30vh; top: 0vh; left: 440vw"></div>
+    <div class="pipe top" style="height: 30vh; top: 0vh; left: 440vw"></div>
 
-    <div class="pipe" style="height: 20vh; top: 0vh; left: 470vw"></div>
+    <div class="pipe top" style="height: 20vh; top: 0vh; left: 470vw"></div>
     <div class="pipe" style="height: 50vh; bottom: 0vh; left: 470vw"></div>
 
-    <div class="pipe" style="height: 10vh; top: 0vh; left: 500vw"></div>
+    <div class="pipe top" style="height: 10vh; top: 0vh; left: 500vw"></div>
     <div class="pipe" style="height: 60vh; bottom: 0vh; left: 500vw"></div>
 
     <div class="pipe" style="height: 40vh; bottom: 0vh; left: 530vw"></div>
-    <div class="pipe" style="height: 30vh; top: 0vh; left: 530vw"></div>
+    <div class="pipe top" style="height: 30vh; top: 0vh; left: 530vw"></div>
 
-    <div class="pipe" style="height: 50vh; top: 0vh; left: 560vw"></div>
+    <div class="pipe top" style="height: 50vh; top: 0vh; left: 560vw"></div>
     <div class="pipe" style="height: 20vh; bottom: 0vh; left: 560vw"></div>
 
-    <div class="pipe" style="height: 40vh; top: 0vh; left: 590vw"></div>
+    <div class="pipe top" style="height: 40vh; top: 0vh; left: 590vw"></div>
     <div class="pipe" style="height: 30vh; bottom: 0vh; left: 590vw"></div>
 
     <div class="pipe" style="height: 40vh; bottom: 0vh; left: 620vw"></div>
-    <div class="pipe" style="height: 30vh; top: 0vh; left: 620vw"></div>
+    <div class="pipe top" style="height: 30vh; top: 0vh; left: 620vw"></div>
   </body>
 </html>
