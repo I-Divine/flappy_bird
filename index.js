@@ -14,7 +14,6 @@ const flappy = {
   g: 0.375,
   score: 0,
   start: function () {
-    // started=true;
     this.gravity();
     this.addScore();
   },
@@ -27,13 +26,10 @@ const flappy = {
       this.bird.style.top = this.yPos + "px";
       if (this.yPos >= window.innerHeight - 50) {
         document.getElementById("atEnd").style = "display:block";
-        // window.alert("Game Over => Press R to start over");
         clearInterval(yChange);
       }
       if (failed) {
         document.getElementById("atEnd").style = "display:block";
-
-        // window.alert("Game Over => Press R to start over");
         clearInterval(yChange);
       }
     }, 30);
@@ -42,7 +38,6 @@ const flappy = {
     this.yVelocity = -6.0;
     jumpsound.play();
     console.log(jumpsound);
-    // console.log(this.jumping);
   },
   addScore: function () {
     const changeScore = setInterval(() => {
@@ -54,15 +49,6 @@ const flappy = {
     }, 2000);
   },
 };
-// class Pipe{
-//     constructor(pipe){
-//         this.pipe = pipe;
-//     }
-//     move() {
-
-//         console.log(this.pipe)
-//     }
-// }
 
 flappy.start();
 
@@ -78,9 +64,8 @@ window.addEventListener("keydown", (event) => {
   }
 });
 
-// this moves the pipes from left to right
 const move = (pipe, pipe_speed = 0.8) => {
-  // let pipe_speed = 0.8;
+
   let xPos = Number(pipe.style.left.split("v")[0]);
   xPos -= pipe_speed;
   pipe.style.left = xPos + "vw";
@@ -111,33 +96,4 @@ const collisionCheck = (element1, element2) => {
     domRect1.left > domRect2.right
   );
 };
-// console.log(pipes);
-// const realtimePos = setInterval(()=>{
-//     console.log(flappy.bird.style.top)
-// },1000);
-// realtimePos;
 
-// console.log(document.querySelector(".pipe").style.left);
-// const Pipes = [];
-// const pipes = Array(document.getElementsByClassName("pipe"));
-// pipes.forEach(pipe => {
-//     Pipes.push(new Pipe(pipe));
-// });
-// Pipes.forEach(Pipe=>{
-//     Pipe.move();
-// })
-// flappy.bird.addEventListener()
-// const velocity = (y,v)=>{
-//     const interval = setInterval(()=>{
-//         y+= v;
-//         if(y>= 100)
-//             clearInterval(interval);
-//     }, 1000)
-// }
-
-// const bird = document.getElementById("flappy");
-// const gravity= ()=>{
-//     console.log(bird, bird.style)
-//     // console.log(bird.style.bottom)
-// }
-// gravity();
