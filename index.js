@@ -5,6 +5,7 @@ let pointsound = document.getElementById("pointsound");
 let hitsound = document.getElementById("hitsound");
 const startInstr = document.getElementById("atStart");
 const endInstr = document.getElementById("atEnd");
+const displayScore = document.getElementById("displayScore");
 const flappy = {
   bird: document.getElementById("flappy"),
   yPos: 300,
@@ -43,8 +44,11 @@ const flappy = {
     const changeScore = setInterval(() => {
       if (started && !failed) {
         this.score += 1;
+        displayScore.textContent = `Score : ${this.score}`;
         pointsound.play();
         console.log(this.score);
+      } else if (failed) {
+        clearInterval(changeScore);
       }
     }, 2000);
   },
@@ -65,7 +69,6 @@ window.addEventListener("keydown", (event) => {
 });
 
 const move = (pipe, pipe_speed = 0.8) => {
-
   let xPos = Number(pipe.style.left.split("v")[0]);
   xPos -= pipe_speed;
   pipe.style.left = xPos + "vw";
@@ -96,4 +99,3 @@ const collisionCheck = (element1, element2) => {
     domRect1.left > domRect2.right
   );
 };
-
