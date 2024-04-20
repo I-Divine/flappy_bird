@@ -3,8 +3,10 @@ let isMobile =
     navigator.userAgent
   );
 if (isMobile) {
-  document.getElementById("main").innerHTML =
-    "Sorry mobile devices are not supported";
+  const body = document.getElementById("main");
+  body.innerHTML =
+    '<div class="device-type-error">Sorry mobile devices are not supported</div>';
+  body.style.backgroundImage = "none";
 } else {
   let failed = false;
   let started = false;
