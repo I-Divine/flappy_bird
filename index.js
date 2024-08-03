@@ -1,8 +1,8 @@
 // console.log(document.cookie);
 const highScore = document.cookie
-  .split(";")
-  .filter((pair) => pair.includes("highScore"))[0]
-  .split("=")[1];
+  ?.split(";")
+  ?.filter((pair) => pair.includes("highScore"))[0]
+  ?.split("=")[1];
 // console.log(highScore);
 document.getElementById("high-score").textContent = `High Score : ${highScore}`;
 let isMobile =
@@ -103,7 +103,7 @@ if (isMobile) {
         failed = true;
         const highScoreComponent = document.getElementById("new-high-score");
         highScoreComponent.textContent(
-          flappy.score > highScore ? `High Score : ${flappy.score}` : highScore
+          "High Score : " + flappy.score > highScore ? flappy.score : highScore
         );
         document.cookie =
           flappy.score > highScore ? `highScore=${flappy.score}` : "";
