@@ -1,8 +1,9 @@
 // console.log(document.cookie);
-const highScore = document.cookie
-  ?.split(";")
-  ?.filter((pair) => pair.includes("highScore"))[0]
-  ?.split("=")[1];
+const highScore =
+  document.cookie
+    ?.split(";")
+    ?.filter((pair) => pair.includes("highScore"))[0]
+    ?.split("=")[1] ?? 0;
 // console.log(highScore);
 document.getElementById("high-score").textContent = `High Score : ${highScore}`;
 let isMobile =
