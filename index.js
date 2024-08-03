@@ -1,3 +1,10 @@
+// console.log(document.cookie);
+const highScore = document.cookie
+  .split(";")
+  .filter((pair) => pair.includes("highScore"))[0]
+  .split("=")[1];
+// console.log(highScore);
+document.getElementById("high-score").textContent = `High Score : ${highScore}`;
 let isMobile =
   /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
     navigator.userAgent
@@ -13,6 +20,7 @@ if (isMobile) {
   let jumpsound = document.getElementById("jumpsound");
   let pointsound = document.getElementById("pointsound");
   let hitsound = document.getElementById("hitsound");
+  let music = document.getElementById("music");
   const startInstr = document.getElementById("atStart");
   const endInstr = document.getElementById("atEnd");
   const displayScore = document.getElementById("displayScore");
@@ -48,7 +56,7 @@ if (isMobile) {
     jump: function () {
       this.yVelocity = -6.0;
       jumpsound.play();
-      console.log(jumpsound);
+      // console.log(jumpsound);
     },
     addScore: function () {
       const changeScore = setInterval(() => {
@@ -56,11 +64,12 @@ if (isMobile) {
           this.score += 1;
           displayScore.textContent = `Score : ${this.score}`;
           pointsound.play();
-          console.log(this.score);
+          music.play();
+          // console.log(this.score);
         } else if (failed) {
           clearInterval(changeScore);
         }
-      }, 2000);
+      }, 1000);
     },
   };
 
@@ -92,6 +101,12 @@ if (isMobile) {
       if (collisionCheck(pipe, flappy.bird)) {
         clearInterval(pipeCode);
         failed = true;
+        const highScoreComponent = document.getElementById("new-high-score");
+        highScoreComponent.textContent(
+          flappy.score > highScore ? `High Score : ${flappy.score}` : highScore
+        );
+        document.cookie =
+          flappy.score > highScore ? `highScore=${flappy.score}` : "";
         hitsound.play();
       }
       if (Number(pipe.style.left.split("v")[0]) <= 0) pipe.style.left = "680vw";
