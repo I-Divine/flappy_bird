@@ -21,6 +21,7 @@ body {
 }
 #atEnd,
 #atStart {
+  width: fit-content;
   position: fixed;
   z-index: 1000;
   left: 50%;

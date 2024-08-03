@@ -1,10 +1,10 @@
-// console.log(document.cookie);
+console.log(document.cookie);
 const highScore =
   document.cookie
     ?.split(";")
     ?.filter((pair) => pair.includes("highScore"))[0]
     ?.split("=")[1] ?? 0;
-// console.log(highScore);
+console.log(highScore);
 document.getElementById("high-score").textContent = `High Score : ${highScore}`;
 let isMobile =
   /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
@@ -101,13 +101,14 @@ if (isMobile) {
       if (started) move(pipe);
       if (collisionCheck(pipe, flappy.bird)) {
         clearInterval(pipeCode);
-        failed = true;
+
         const highScoreComponent = document.getElementById("new-high-score");
-        highScoreComponent.textContent(
-          "High Score : " + flappy.score > highScore ? flappy.score : highScore
-        );
+        highScoreComponent.textContent = `High Score : ${
+          flappy.score > highScore ? flappy.score : highScore
+        }`;
         document.cookie =
           flappy.score > highScore ? `highScore=${flappy.score}` : "";
+        failed = true;
         hitsound.play();
       }
       if (Number(pipe.style.left.split("v")[0]) <= 0) pipe.style.left = "680vw";
